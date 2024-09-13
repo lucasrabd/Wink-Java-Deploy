@@ -1,6 +1,6 @@
-# WellDone API - Java
+# Wink API - Java 👀
 
-Este repositório contém a aplicação **WellDone**, uma API desenvolvida em Java, utilizando **Spring Boot**, com integração a um banco de dados Oracle.
+Este repositório contém a aplicação **Wink**, uma API desenvolvida em Java, utilizando **Spring Boot**, com integração a um banco de dados Oracle.
 
 ## 📋 Requisitos
 
@@ -16,7 +16,7 @@ Este repositório contém a aplicação **WellDone**, uma API desenvolvida em Ja
 Primeiro, você precisa clonar este repositório para sua máquina local:
 
 ```bash
-git clone https://github.com/lucasrabd/WellDone-Java-Deploy.git
+git clone https://github.com/lucasrabd/Wink-Java-Deploy.git
 ```
 
 ### 2. Configurando o banco de dados
@@ -120,7 +120,7 @@ Para mais detalhes sobre como realizar o deploy, consulte a [documentação ofic
 │   │   │   └── br
 │   │   │       └── com
 │   │   │           └── fiap
-│   │   │               └── WellDone
+│   │   │               └── Wink
 │   │   │                   ├── controller
 │   │   │                   ├── model
 │   │   │                   └── repository
