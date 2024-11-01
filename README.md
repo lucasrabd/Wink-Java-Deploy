@@ -111,6 +111,44 @@ DELETE http://localhost:8080/pedido/delete/{pedido_id}
 
 Para mais detalhes sobre como realizar o deploy, consulte a [documentação oficial do Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux).
 
+## ⚙️ Configuração da Pipeline no Azure DevOps
+
+1. **Configuração do Agente de Build:**
+   - Instale e registre o agente de build do Azure DevOps utilizando o **Personal Access Token (PAT)**. Certifique-se de que o agente está ativo antes de iniciar a pipeline.
+
+2. **Configuração da Pipeline:**
+   - Na seção **Pipelines** do Azure DevOps, crie uma nova pipeline.
+   - Escolha o repositório do GitHub e configure o arquivo YAML para a pipeline.
+
+3. **Arquivo `azure-pipelines.yml`:**
+   - O arquivo `azure-pipelines.yml` fornece a estrutura para o build e execução dos testes. Aqui está um exemplo:
+
+```yaml
+# azure-pipelines.yml
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '6.x.x' # Ajuste para a versão necessária
+
+- task: Maven@3
+  inputs:
+    goals: 'clean install'
+
+- task: Maven@3
+  inputs:
+    goals: 'test'
+```
+
+4. **Executando a Pipeline:**
+   - Após a configuração, execute a pipeline na seção **Pipelines** do Azure DevOps. Acompanhe o progresso e verifique se todas as etapas foram concluídas com sucesso.
+
 ## 📂 Estrutura do Projeto
 
 ```bash
@@ -135,10 +173,7 @@ Para mais detalhes sobre como realizar o deploy, consulte a [documentação ofic
 - Utilize o Postman ou cURL para realizar as operações CRUD descritas acima.
 - O banco de dados Oracle deve estar configurado e rodando.
 
-## 📜 Licença
 
-Este projeto é licenciado sob a [MIT License](LICENSE).
+---
 
-## 👥 Contribuidores
-
-- **Lucas Carabolad** - [GitHub](https://github.com/lucasrabd)
+> **Nota:** Certifique-se de que o `azure-pipelines.yml` está adaptado para as necessidades específicas do projeto e que o agente de build está configurado corretamente no Azure DevOps para evitar erros de conexão e execução.
